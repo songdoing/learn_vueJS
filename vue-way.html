@@ -13,7 +13,23 @@
 
     <script>
         var div = document.querySelector('#app');
-        div.innerHTML = 'hello world';
+        // div.innerHTML = 'hello world';
+        var viewModel = {};
+
+        // Object.defineProperty(대상객체, 객체속성, {
+        //     정의할 내용
+        // })
+
+        Object.defineProperty(viewModel, 'str', {
+            //속성에 접근했을때의 동작을 정의
+            get: function () {
+
+            },
+            //속성에 값을 할당했을때의 동작의 정의
+            set: function () {
+
+            }
+        })
 
     </script>
 </body>
