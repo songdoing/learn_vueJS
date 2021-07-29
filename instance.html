@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instance</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            // body태크 안에서 app이라는 id를 가진 태그를 찾아서 new Vue로 만든 instance를 붙이겠다
+            el: '#app',
+            // new Vue로 만든 인스턴스를 특정태그에 붙여야 그 태그에서 vue를 사용할수 있다
+            data: {
+                message: 'hi Jenny'
+            }
+        });
+    </script>
+</body>
+
+</html>
