@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component</title>
+</head>
+
+<body>
+    <div id="app">
+        <!--root 컴퍼넌트-->
+        <!-- 생성한 header컴퍼넌트 넣어주기 -->
+        <app-header></app-header>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // 기본적으로 root 컴퍼넌트가 생성되고
+        // 컴퍼넌트를 생성방법
+        // Vue.component('컴퍼넌트 이름', 컴퍼넌트 내용);
+        Vue.component('app-header', {
+            template: '<h1>Header</h1>'
+        });
+
+        new Vue({
+            el: '#app',
+        });
+    </script>
+</body>
+
+</html>
