@@ -13,6 +13,7 @@
         <!--root 컴퍼넌트-->
         <!-- 생성한 header컴퍼넌트 넣어주기 -->
         <app-header></app-header>
+        <app-content></app-content>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -22,6 +23,9 @@
         // Vue.component('컴퍼넌트 이름', 컴퍼넌트 내용);
         Vue.component('app-header', {
             template: '<h1>Header</h1>'
+        });
+        Vue.component('app-content', {
+            template: '<div>content</div>'
         });
 
         new Vue({
