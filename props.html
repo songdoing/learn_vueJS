@@ -10,19 +10,24 @@
 
 <body>
     <div id="app">
-        <app-header></app-header>
+        <!-- <app-header v-bind:props 속성 이름="상위 컴퍼넌트의 데이터 이름"></app-header> -->
+        <app-header v-bind:propsdata="message"></app-header>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         var appHeader = {
-            template: '<h1>header</h1>'
+            template: '<h1>header</h1>',
+            props: ['propsdata']
         }
 
         new Vue({
             el: '#app',
             components: {
                 'app-header': appHeader
+            },
+            data: {
+                message: 'hi'
             }
         })
     </script>
