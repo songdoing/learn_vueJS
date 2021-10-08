@@ -30,6 +30,7 @@
             template: '<div>content</div>'
         });
 
+        //인스턴스 생성, root component가 되는 거임
         new Vue({
             el: '#app',
             //지역컴포넌트 만들기
@@ -40,6 +41,9 @@
                 }
             }
         });
+
+        //인스턴스 여러개 생성할 수는 있고, 전역 component는 어디서든
+        // 가져다 쓸수 있음, 지역은 인스턴스안에서만 지정,사용가능
     </script>
 </body>
 
