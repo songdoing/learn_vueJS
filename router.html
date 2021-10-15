@@ -1,4 +1,3 @@
-[
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +9,12 @@
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <!-- vue 인스턴스에 router 인스턴스를 연결을 해야
+        router-view를 사용할 수 있으며, 상세 path에 따라 화면이
+        달리 보여지도록 한다 -->
+        <router-view></router-view>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script>
