@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch vs computed</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ num }}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num: 10
+            },
+            //빨리, 간단한 연산
+            computed: {
+                doubleNum: function () {
+                    return this.num * 2;
+                }
+            },
+            //매번 실행하기 무거운 data, 변화가 있을때만, 데이터 요청
+            watch: {
+                num: function (newValue, oldValue) {
+                    this.fetchUserByNumber(newValue);
+                }
+            },
+            methods: {
+                fetchUserByNumber: function (num) {
+                    console.log(num);
+                    //axios.get(num);
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
