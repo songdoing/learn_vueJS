@@ -1,28 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    {{ str }}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  // data : {
+  //   str : 'hi'
+  // } -> 오류남(`data` property in component must be a function )
+  // 컴포넌트는 재사용의 목적을 두고 있는데, 다른 곳에서 data를 참조하면
+  // 안 되므로, 객체형식이 아닌, 함수를 연결하고, return으로 새 객체를 
+  // 반환하는 형식으로 써줘야 함 
+  data : function(){
+    return {
+      str : 'hi'
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
