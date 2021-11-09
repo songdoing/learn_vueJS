@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header></app-header>
+    <app-header v-bind:propsdata="str"></app-header>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
   // 반환하는 형식으로 써줘야 함 
   data : function(){
     return {
-      str : 'hi'
+      str : 'header'
     }
   },
   components : {
