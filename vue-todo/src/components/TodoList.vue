@@ -1,9 +1,9 @@
 <template>
   <div>
      <ul>
-       <li v-for="todoItem in todoItems" v-bind:key="todoItem" class="shadow">
+       <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem" class="shadow">
        {{ todoItem }}
-       <span class="removeBtn" v-on:click="removeTodo">
+       <span class="removeBtn" v-on:click="removeTodo(todoItem,index)">
          <i class="fas fa-trash-alt"></i>
        </span>
        </li>
@@ -19,8 +19,10 @@ export default {
     }
   },
   methods : {
-    removeTodo : function() {
-
+    removeTodo : function(todoItem, index) {
+      localStorage.removeItem(todoItem);
+      // slice()는 기존배열 변경하지 않고, splice() 새로운 배열을 리턴
+      this.todoItems.splice(index, 1);
     }
   },
   // 인스턴스가 생성되자마자 실행되는..hook
