@@ -18,10 +18,15 @@ export default {
    },
    methods : {
      addTodo : function() {
-       console.log(this.newTodoItem);
-       //로컬스토리지에 저장
-       localStorage.setItem(this.newTodoItem, this.newTodoItem);
-       this.clearInput();
+       if(this.newTodoItem != '') {
+          var obj = {completed : false, item : this.newTodoItem};
+          console.log(this.newTodoItem);
+          //로컬스토리지에 저장 , JSON.stringify()를 써서 string 으로 저장되도록
+          //  localStorage.setItem(this.newTodoItem, obj); value에 그냥 object로 잡힘
+          // JSON.stringify하면 object내용이 value에 상세히 보임
+          localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+          this.clearInput();
+       }       
      },
      clearInput : function() {
        //input창 초기화

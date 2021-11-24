@@ -2,6 +2,7 @@
   <div>
      <ul>
        <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem" class="shadow">
+       <i class="checkBtn fas fa-check" v-on:click="toggleComplete"></i>
        {{ todoItem }}
        <span class="removeBtn" v-on:click="removeTodo(todoItem,index)">
          <i class="fas fa-trash-alt"></i>
@@ -23,6 +24,9 @@ export default {
       localStorage.removeItem(todoItem);
       // slice()는 기존배열 변경하지 않고, splice() 새로운 배열을 리턴
       this.todoItems.splice(index, 1);
+    },
+    toggleComplete : function() {
+
     }
   },
   // 인스턴스가 생성되자마자 실행되는..hook
@@ -40,7 +44,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 ul {
   list-style-type : none;
   padding-left: 0px;
