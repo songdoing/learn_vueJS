@@ -1,9 +1,11 @@
 <template>
   <div>
      <ul>
-       <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem" class="shadow">
-       <i class="checkBtn fas fa-check" v-on:click="toggleComplete"></i>
-       {{ todoItem }}
+       <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem.item" class="shadow">
+       <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted : todoItem.completed}" 
+        v-on:click="toggleComplete(todoItem, index)"></i>
+       <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
+       <!-- todoItem.completed가 false이면 class:textCompleted는 없어짐 -->
        <span class="removeBtn" v-on:click="removeTodo(todoItem,index)">
          <i class="fas fa-trash-alt"></i>
        </span>
@@ -25,8 +27,12 @@ export default {
       // slice()는 기존배열 변경하지 않고, splice() 새로운 배열을 리턴
       this.todoItems.splice(index, 1);
     },
-    toggleComplete : function() {
-
+    toggleComplete : function(todoItem, index) {
+      console.log(todoItem, index);
+      todoItem.completed = !todoItem.completed;
+      //로컬스토리지에 다시 갱신하는 것
+      localStorage.removeItem(todoItem.item);
+      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     }
   },
   // 인스턴스가 생성되자마자 실행되는..hook
@@ -37,7 +43,7 @@ export default {
         if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
           //  console.log(localStorage.key(i));
           // this.todoItems.push(localStorage.key(i));
-          JSON.parse(localStorage.getItem(localStorage.key(i)));
+        this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
           //setItem에서 JSON.stringify으로 넣어서 string으로 들어갔고
           // 이제 getItem에선 다시 obj으로 바꿔가져와야 하믄로
         }        
