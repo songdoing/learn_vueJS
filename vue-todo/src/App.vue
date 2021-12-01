@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput></TodoInput>
+    <TodoInput v-on:addTodoItem="addOneItem  "></TodoInput>
     <TodoList v-bind:propsdata = "todoItems"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
@@ -20,6 +20,13 @@ export default {
       todoItems : []
     }
   }, 
+  methods : {
+    addOneItem : function(todoItem) {
+      var obj = {completed : false, item : todoItem};
+      localStorage.setItem(todoItem, JSON.stringify(obj));
+      this.todoItems.push(obj);
+    }
+  },
   created : function() {
     // 로컬스토리지에 있는 데이터를 가져오기
     if(localStorage.length > 0) {

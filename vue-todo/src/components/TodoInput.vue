@@ -19,12 +19,14 @@ export default {
    methods : {
      addTodo : function() {
        if(this.newTodoItem != '') {
-          var obj = {completed : false, item : this.newTodoItem};
-          console.log(this.newTodoItem);
+          // var obj = {completed : false, item : this.newTodoItem};
+          // console.log(this.newTodoItem);
           //로컬스토리지에 저장 , JSON.stringify()를 써서 string 으로 저장되도록
           //  localStorage.setItem(this.newTodoItem, obj); value에 그냥 object로 잡힘
           // JSON.stringify하면 object내용이 value에 상세히 보임
-          localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+          // localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+          // this.$emit('이벤트 이름', 인자1, 인자2, ...)
+          this.$emit('addTodoItem', this.newTodoItem);
           this.clearInput();
        }       
      },
