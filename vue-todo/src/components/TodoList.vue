@@ -19,16 +19,12 @@ export default {
   props : ['propsdata'],
   methods : {
     removeTodo : function(todoItem, index) {
-      localStorage.removeItem(todoItem);
-      // slice()는 기존배열 변경하지 않고, splice() 새로운 배열을 리턴
-      this.todoItems.splice(index, 1);
+      this.$emit('removeItem', todoItem, index);
+      
     },
     toggleComplete : function(todoItem, index) {
       console.log(todoItem, index);
-      todoItem.completed = !todoItem.completed;
-      //로컬스토리지에 다시 갱신하는 것
-      localStorage.removeItem(todoItem.item);
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+      this.$emit('toggleItem', todoItem, index);
     }
   },
 
