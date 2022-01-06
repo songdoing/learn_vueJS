@@ -12,7 +12,9 @@
       you can use custom content here to overwrite
       default content
     -->
-        <h3 slot="header">custom header</h3>
+        <h3 slot="header">경고!</h3>
+        <h5 slot="body">문자를 입력하세요</h5>
+        <h7 slot="footer">copyright : Jenny Song</h7>
       </Modal>
   </div>
 </template>
@@ -38,6 +40,8 @@ export default {
           // this.$emit('이벤트 이름', 인자1, 인자2, ...)
           this.$emit('addTodoItem', this.newTodoItem);
           this.clearInput();
+       }else {
+         this.showModal = !this.showModal;
        }       
      },
      clearInput : function() {

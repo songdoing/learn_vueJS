@@ -3,7 +3,8 @@
         <div class="modal-mask">
           <div class="modal-wrapper">
             <div class="modal-container">
-
+              <!-- header,body,footer 정의만 해놓고 -->
+              <!-- TodoInput에서 직접적으로 custom 한다 -->
               <div class="modal-header">
                 <slot name="header">
                   default header
