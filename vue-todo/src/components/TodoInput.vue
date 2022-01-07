@@ -12,9 +12,12 @@
       you can use custom content here to overwrite
       default content
     -->
-        <h3 slot="header">경고!</h3>
-        <h5 slot="body">문자를 입력하세요</h5>
-        <h7 slot="footer">copyright : Jenny Song</h7>
+        <h3 slot="header">
+          Warning!
+          <i class="closeModalBtn fas fa-times" @click="showModal=false"></i>
+        </h3>
+        <div slot="body">Please enter your word.</div>
+        <h5 slot="footer">copyright : Jenny Song</h5>
       </Modal>
   </div>
 </template>
@@ -68,6 +71,8 @@ export default {
 .inputBox input {
   border-style: none;
   font-size: 1.5rem;
+  width : 800px;
+  text-align: center;
 }
 .addContainer {
   float: right;
@@ -80,4 +85,8 @@ export default {
   color: white;
   vertical-align: middle;
 }
+.closeModalBtn, h3 {
+  color : red;
+}
+
 </style>
