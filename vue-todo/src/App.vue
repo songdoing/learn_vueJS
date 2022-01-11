@@ -15,24 +15,24 @@ import TodoFooter from './components/TodoFooter.vue'
 
 
 export default {
-  data : function() {
+  data() {
     return {
       todoItems : []
     }
   }, 
   methods : {
-    addOneItem : function(todoItem) {
-      var obj = {completed : false, item : todoItem};
+    addOneItem(todoItem) {      
+      const obj = {completed : false, item : todoItem};
       localStorage.setItem(todoItem, JSON.stringify(obj));
       this.todoItems.push(obj);
     },
-    removeOneItem : function(todoItem, index) {
+    removeOneItem(todoItem, index) {
       // todoItem은 object이고, 그 중 item을 지우기
       localStorage.removeItem(todoItem.item);
       // slice()는 기존배열 변경하지 않고, splice() 새로운 배열을 리턴
       this.todoItems.splice(index, 1);
     },
-    toggleOneItem : function(todoItem, index) {
+    toggleOneItem(todoItem, index) {
       // todoItem.completed = !todoItem.completed;
       // 위에꺼는 props로 내린 것을 다시 올려서 쓴거라, 안 좋음
       // 아래꺼처럼 직접 data에 접근하여 표현하는 방식이 옳아
@@ -41,15 +41,15 @@ export default {
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
-    clearAllItems : function() {
+    clearAllItems() {
       localStorage.clear();
       this.todoItems = [];
     }
   },
-  created : function() {
+  created() {
     // 로컬스토리지에 있는 데이터를 가져오기
     if(localStorage.length > 0) {
-      for(var i =0;  i < localStorage.length; i++) {
+      for(let i =0;  i < localStorage.length; i++) {
         if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
           //  console.log(localStorage.key(i));
           // this.todoItems.push(localStorage.key(i));
@@ -62,10 +62,15 @@ export default {
   },
   components : {
     //컴포넌트 태그명 : 컴포넌트 이름
-    'TodoHeader' : TodoHeader,
-    'TodoInput' : TodoInput,
-    'TodoList' : TodoList,
-    'TodoFooter' : TodoFooter,
+    // 'TodoHeader' : TodoHeader,
+    // 'TodoInput' : TodoInput,
+    // 'TodoList' : TodoList,
+    // 'TodoFooter' : TodoFooter,
+    // 향상된 객체 리터럴, 속성,값이 같으면 하나만
+    TodoHeader,
+    TodoInput,
+    TodoList,
+    TodoFooter,
   }
 }
 </script>

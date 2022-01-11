@@ -25,14 +25,14 @@
 <script>
 import Modal from './common/Modal.vue'
 export default {
-   data : function() {
+   data() {
      return {
        newTodoItem : '',
        showModal : false,
      }
    },
    methods : {
-     addTodo : function() {
+     addTodo() {
        if(this.newTodoItem != '') {
           // var obj = {completed : false, item : this.newTodoItem};
           // console.log(this.newTodoItem);
@@ -47,13 +47,13 @@ export default {
          this.showModal = !this.showModal;
        }       
      },
-     clearInput : function() {
+     clearInput() {
        //input창 초기화
        this.newTodoItem = '';
      }
    },
    components : {
-     Modal : Modal
+     Modal
    }
 }
 </script>
