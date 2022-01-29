@@ -46,20 +46,10 @@ export default {
       this.todoItems = [];
     }
   },
-  created() {
-    // 로컬스토리지에 있는 데이터를 가져오기
-    if(localStorage.length > 0) {
-      for(let i =0;  i < localStorage.length; i++) {
-        if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-          //  console.log(localStorage.key(i));
-          // this.todoItems.push(localStorage.key(i));
-        this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-          //setItem에서 JSON.stringify으로 넣어서 string으로 들어갔고
-          // 이제 getItem에선 다시 obj으로 바꿔가져와야 하믄로
-        }        
-      }
-    }
-  },
+  // created() {
+  //   // 로컬스토리지에 있는 데이터를 가져오기
+    
+  // },
   components : {
     //컴포넌트 태그명 : 컴포넌트 이름
     // 'TodoHeader' : TodoHeader,
